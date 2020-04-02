@@ -7,6 +7,7 @@
   "scripts": {
     "build": "yarn install && yarn start",
     "css-watch": "node-sass --watch assets/stylesheets/scss/app.scss assets/stylesheets/css/app.css",
+    "css-build": "node-sass assets/stylesheets/scss/app.scss assets/stylesheets/css/app.css",
     "start": "eslint .eslintrc.js .eslintignore ./app/ index.js  && node index.js",
     "dev": "eslint .eslintrc.js .eslintignore ./app/ index.js && nodemon index.js",
     "test": "mocha",

@@ -64,7 +64,7 @@ Once you have NodeJS on your computer, simply go in the project directory and ru
  > mongod
 
 In an other tab:
- > yarn build:sass
+ > yarn css-build
  > yarn start
 
 Want to stop the app ? Just type CTRL + C
