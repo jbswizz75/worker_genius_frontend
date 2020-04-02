@@ -1,0 +1,12 @@
+header {
+  position: fixed;
+  height: 5%;
+  font-size: 3rem;
+  width: 100%;
+  //height: 10%;
+ & > a {
+    font-size: map-get($fonts-size, big );
+  }
+}
+
+

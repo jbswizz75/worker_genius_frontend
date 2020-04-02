@@ -1,7 +1,30 @@
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-$fa-font-path: "../../../node_modules/font-awesome/fonts/";
-@import "../../../node_modules/font-awesome/scss/font-awesome";
-@import "components/bundle";
-@import 'layout/main';
+/* ----------------------------------------- */
+/*                 ~ HELPERS ~               */
+/* ----------------------------------------- */
+@import "helpers/variables";
+@import "helpers/mixins";
+/* ----------------------------------------- */
+/*                 ~ BASE ~                  */
+/* ----------------------------------------- */
+@import "base/base";
+@import "base/typography";
+
+/* ----------------------------------------- */
+/*                ~ LAYOUT ~                 */
+/* ----------------------------------------- */
+@import "layouts/layouts";
+
+/* ----------------------------------------- */
+/*              ~ COMPONENTS ~               */
+/* ----------------------------------------- */
+@import "components/header";
+@import "components/footer";
+@import "components/logo";
+@import "components/avatar";
+@import "components/carousel";
+/* ----------------------------------------- */
+/*                 ~ PAGES ~                 */
+/* ----------------------------------------- */
+@import "pages/home";
 
 

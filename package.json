@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn install && yarn start",
-    "build:sass": "sass --watch assets/stylesheets/scss/app.scss ./app/assets/stylesheets/css/app.css",
+    "css-watch": "node-sass --watch assets/stylesheets/scss/app.scss assets/stylesheets/css/app.css",
     "start": "eslint .eslintrc.js .eslintignore ./app/ index.js  && node index.js",
     "dev": "eslint .eslintrc.js .eslintignore ./app/ index.js && nodemon index.js",
     "test": "mocha",
@@ -40,6 +40,7 @@
     "eslint-plugin-standard": "3.1.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "sass": "^1.26.3"
   }
