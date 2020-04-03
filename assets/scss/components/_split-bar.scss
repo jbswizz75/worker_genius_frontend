@@ -1,0 +1,18 @@
+li.box-split-bar {
+  width: 3rem;
+  box-sizing: border-box;
+  margin-top: 0.1\%;
+
+  & > hr.split-bar {
+
+    position: relative;
+    border-left: 1px solid hsla(200, 10%, 50%, 100);
+    width: 0.01rem;
+    height: 2rem;
+    margin-left: 50%;
+    top: 0;
+    //flex: 0 1 10%;
+  }
+}
+
+

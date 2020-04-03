@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn install && yarn start",
-    "css-watch": "node-sass --watch assets/stylesheets/scss/app.scss assets/stylesheets/css/app.css",
-    "css-build": "node-sass assets/stylesheets/scss/app.scss assets/stylesheets/css/app.css",
+    "css-watch": " nodemon -e scss -x \"yarn run css-build\"",
+    "css-build": "node-sass assets/scss/app.scss assets/css/app.css",
     "start": "eslint .eslintrc.js .eslintignore ./app/ index.js  && node index.js",
     "dev": "eslint .eslintrc.js .eslintignore ./app/ index.js && nodemon index.js",
     "test": "mocha",
