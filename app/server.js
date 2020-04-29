@@ -40,7 +40,11 @@ class Server {
    */
   dbConnect () {
     const host = 'mongodb://localhost:27017/worker_genius'
-    const connect = mongoose.createConnection(host)
+    const connect = mongoose.createConnection(host, { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false
+    })
   
     connect.on('error', (err) => {
       setTimeout(() => {
@@ -108,9 +112,9 @@ class Server {
     // new routes.users.Delete(this.app, this.connect)
 
     // certifications
-    new routes.certifications.CreateCertification(this.app, this.connect)
-    // new routes.certifications.ShowCertification(this.app, this.connect)
-    // new routes.certifications.UpdateCertification(this.app, this.connect)
+    new routes.certifications.NewCertification(this.app, this.connect)
+    new routes.certifications.ShowCertification(this.app, this.connect)
+    new routes.certifications.EditCertification(this.app, this.connect)
     // new routes.certifications.DeleteCertification(this.app, this.connect)
     // new routes.certifications.ListCertification(this.app, this.connect)
 
