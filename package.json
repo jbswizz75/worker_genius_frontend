@@ -30,6 +30,7 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.9.10",
     "mpath": "^0.5.1",
+    "node": "^10.9.0",
     "node-fetch": "^2.6.0",
     "node-validator": "0.1.27",
     "slugify": "^1.4.0"
