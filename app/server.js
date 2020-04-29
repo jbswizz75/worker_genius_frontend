@@ -1,7 +1,7 @@
 const express = require('express')
-// const routes = require('./controllers/routes.js')
+const routes = require('./controllers/routes.js')
 const bodyParser = require('body-parser')
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const path = require('path')
 // const fetch = require('node-fetch')
@@ -33,38 +33,43 @@ class Server {
   //     })
   //   return article
   // }
+
   /**
    * db connect
    * @return {Object} connect
    */
-  // dbConnect () {
-  //   const host = 'mongodb://localhost:27017/worker_genius'
-  //   const connect = mongoose.createConnection(host)
-  //
-  //   connect.on('error', (err) => {
-  //     setTimeout(() => {
-  //       console.log('[ERROR] api dbConnect() -> mongodb error')
-  //       this.connect = this.dbConnect(host)
-  //     }, 5000)
-  //
-  //     console.error(`[ERROR] api dbConnect() -> ${err}`)
-  //   })
-  //
-  //   connect.on('disconnected', () => {
-  //     setTimeout(() => {
-  //       console.log('[DISCONNECTED] api dbConnect() -> mongodb disconnected')
-  //       this.connect = this.dbConnect(host)
-  //     }, 5000)
-  //   })
-  //
-  //   process.on('SIGINT', () => {
-  //     connect.close(() => {
-  //       console.log('[API END PROCESS] api dbConnect() -> close mongodb connection ')
-  //       process.exit(0)
-  //     })
-  //   })
-  //   return connect
-  // }
+  dbConnect () {
+    const host = 'mongodb://localhost:27017/worker_genius'
+    const connect = mongoose.createConnection(host, { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false
+    })
+  
+    connect.on('error', (err) => {
+      setTimeout(() => {
+        console.log('[ERROR] api dbConnect() -> mongodb error')
+        this.connect = this.dbConnect(host)
+      }, 5000)
+  
+      console.error(`[ERROR] api dbConnect() -> ${err}`)
+    })
+  
+    connect.on('disconnected', () => {
+      setTimeout(() => {
+        console.log('[DISCONNECTED] api dbConnect() -> mongodb disconnected')
+        this.connect = this.dbConnect(host)
+      }, 5000)
+    })
+  
+    process.on('SIGINT', () => {
+      connect.close(() => {
+        console.log('[API END PROCESS] api dbConnect() -> close mongodb connection ')
+        process.exit(0)
+      })
+    })
+    return connect
+  }
 
   /**
    * middleware
@@ -106,12 +111,12 @@ class Server {
     // new routes.users.Update(this.app, this.connect)
     // new routes.users.Delete(this.app, this.connect)
 
-    // articles
-    // new routes.articles.CreateArticle(this.app, this.connect)
-    // new routes.articles.ShowArticle(this.app, this.connect)
-    // new routes.articles.UpdateArticle(this.app, this.connect)
-    // new routes.articles.DeleteArticle(this.app, this.connect)
-    // new routes.articles.ListArticle(this.app, this.connect)
+    // certifications
+    new routes.certifications.NewCertification(this.app, this.connect)
+    new routes.certifications.ShowCertification(this.app, this.connect)
+    new routes.certifications.EditCertification(this.app, this.connect)
+    // new routes.certifications.DeleteCertification(this.app, this.connect)
+    // new routes.certifications.ListCertification(this.app, this.connect)
 
     this.app.use((_, res) => {
       res.status(404).json({
@@ -126,8 +131,8 @@ class Server {
    */
   run () {
     try {
-      // this.connect = this.dbConnect()
-      // this.dbConnect()
+      this.connect = this.dbConnect()
+      this.dbConnect()
       this.middleware()
       this.routes()
       this.app.listen(this.port, () => console.log(`Server is listening on port ${this.port} and dirname is ${__dirname}`))

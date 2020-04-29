@@ -1,28 +1,29 @@
 // Users
-const Create = require('./users/create.js')
-const Show = require('./users/show')
-const Delete = require('./users/delete.js')
-const Update = require('./users/update.js')
+// const CreateUser = require('./users/create')
+// const ShowUser = require('./users/show')
+// const DeleteUser = require('./users/delete')
+// const UpdateUser = require('./users/update')
+// const ListUser = require('./users/list')
 
-// Articles
-const CreateArticle = require('./articles/create')
-const ShowArticle = require('./articles/show')
-const ListArticle = require('./articles/list')
-const UpdateArticle = require('./articles/update')
-const DeleteArticle = require('./articles/delete')
+// Certifications
+const NewCertification = require('./certifications/new')
+const ShowCertification = require('./certifications/show')
+// const ListCertification = require('./certifications/list')
+const EditCertification = require('./certifications/edit')
+// const DeleteCertification = require('./certifications/delete')
 
 module.exports = {
-  users: {
-    Create,
-    Show, 
-    Delete,
-    Update
-  },
-  articles: {
-    CreateArticle,
-    ShowArticle, 
-    UpdateArticle,
-    DeleteArticle,
-    ListArticle
+  // users: {
+  //   CreateUser,
+  //   ShowUser, 
+  //   DeleteUser,
+  //   UpdateUser
+  // },
+  certifications: {
+    NewCertification,
+    ShowCertification,
+    EditCertification
+    // DeleteCertification,
+    // ListCertification
   }
 }
