@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const ObjectId = Schema.ObjectId
 const mixed = Schema.Types.Mixed
-const slugify = require('slugify')
+const generateSlug = require('../helpers/generateSlug')
 
 const CertificationSchema = new mongoose.Schema({
   title: String,
@@ -16,7 +16,7 @@ const CertificationSchema = new mongoose.Schema({
   languages: [String],
   creator: String, // will take the Id of the creator,
   creationDate: { type: Date, default: Date.now },
-  updated: { type: Date, default: Date.now }
+  updated: Date
 }, {
   collection: 'certifications', 
   minimize: false, 
@@ -27,15 +27,18 @@ const CertificationSchema = new mongoose.Schema({
     delete ret._id
   }
 })
-CertificationSchema.methods.generateSlug = async function () {
-  this.slug = slugify(this.title.replace(/:/g, '')).toLowerCase()
-  // await this.save()
-  return this
-}
 
 CertificationSchema.methods.generatePicture = async function () {
   this.picture = '../../assets/images/code_js.jpg'
-  // await this.save()
+  return this
+}
+CertificationSchema.methods.generateUpdated = async function () {
+  this.updated = Date.now
+  return this
+}
+
+CertificationSchema.methods.generateSlug = function () {
+  this.slug = generateSlug(this.title)
   return this
 }
 

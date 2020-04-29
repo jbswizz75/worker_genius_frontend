@@ -9,7 +9,7 @@
 const NewCertification = require('./certifications/new')
 const ShowCertification = require('./certifications/show')
 // const ListCertification = require('./certifications/list')
-// const UpdateCertification = require('./certifications/update')
+const EditCertification = require('./certifications/edit')
 // const DeleteCertification = require('./certifications/delete')
 
 module.exports = {
@@ -21,8 +21,8 @@ module.exports = {
   // },
   certifications: {
     NewCertification,
-    ShowCertification
-    // UpdateCertification,
+    ShowCertification,
+    EditCertification
     // DeleteCertification,
     // ListCertification
   }

@@ -42,7 +42,8 @@ class Server {
     const host = 'mongodb://localhost:27017/worker_genius'
     const connect = mongoose.createConnection(host, { 
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useFindAndModify: false
     })
   
     connect.on('error', (err) => {
@@ -113,7 +114,7 @@ class Server {
     // certifications
     new routes.certifications.NewCertification(this.app, this.connect)
     new routes.certifications.ShowCertification(this.app, this.connect)
-    // new routes.certifications.UpdateCertification(this.app, this.connect)
+    new routes.certifications.EditCertification(this.app, this.connect)
     // new routes.certifications.DeleteCertification(this.app, this.connect)
     // new routes.certifications.ListCertification(this.app, this.connect)
 
