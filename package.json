@@ -2,7 +2,10 @@
   "name": "hackaton",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/AlexandreHoumeau/HACKATON-MDS-2020.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandreHoumeau/HACKATON-MDS-2020.git"
+  },
   "license": "MIT",
   "scripts": {
     "build": "yarn install && yarn start",
@@ -18,14 +21,14 @@
     "compression": "1.7.2",
     "cors": "2.8.4",
     "crypto-js": "4.0.0",
-    "express": "4.16.3",
+    "express": "^4.16.3",
     "express-handlebars": "^3.1.0",
     "handlebars-dateformat": "^1.1.1",
     "handlebars-intl": "^1.1.2",
     "hbs": "^4.1.0",
-    "helmet": "3.12.1",
-    "lodash": "4.17.10",
-    "mongoose": "^5.7.5",
+    "helmet": "^3.22.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.10",
     "mpath": "^0.5.1",
     "node-fetch": "^2.6.0",
     "node-validator": "0.1.27",
@@ -47,5 +50,11 @@
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "sass": "^1.26.3"
-  }
+  },
+  "description": "This application is developed by Jean-Baptiste VESLEER and Sébastien NOBOUR.\r They are both student at My Digital School Paris 19e, France.",
+  "bugs": {
+    "url": "https://github.com/AlexandreHoumeau/HACKATON-MDS-2020/issues"
+  },
+  "homepage": "https://github.com/AlexandreHoumeau/HACKATON-MDS-2020#readme",
+  "author": ""
 }
