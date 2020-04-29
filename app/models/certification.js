@@ -27,8 +27,8 @@ const CertificationSchema = new mongoose.Schema({
     delete ret._id
   }
 })
-CertificationSchema.methods.generateSlug =  async function () {
-  this.slug = slugify(this.title)
+CertificationSchema.methods.generateSlug = async function () {
+  this.slug = slugify(this.title.replace(/:/g, '')).toLowerCase()
   // await this.save()
   return this
 }

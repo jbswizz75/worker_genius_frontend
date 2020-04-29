@@ -6,8 +6,8 @@
 // const ListUser = require('./users/list')
 
 // Certifications
-const CreateCertification = require('./certifications/create')
-// const ShowCertification = require('./certifications/show')
+const NewCertification = require('./certifications/new')
+const ShowCertification = require('./certifications/show')
 // const ListCertification = require('./certifications/list')
 // const UpdateCertification = require('./certifications/update')
 // const DeleteCertification = require('./certifications/delete')
@@ -20,8 +20,8 @@ module.exports = {
   //   UpdateUser
   // },
   certifications: {
-    CreateCertification
-    // ShowCertification, 
+    NewCertification,
+    ShowCertification
     // UpdateCertification,
     // DeleteCertification,
     // ListCertification
